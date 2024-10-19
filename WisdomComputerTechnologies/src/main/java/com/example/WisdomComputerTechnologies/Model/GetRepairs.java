@@ -1,5 +1,8 @@
 package com.example.WisdomComputerTechnologies.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +18,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "customer_ServiceId")
+
 public class GetRepairs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +29,8 @@ public class GetRepairs {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonBackReference // Prevent recursion by ignoring this field during serialization
+
     private Customer customer;
 
     @ManyToOne

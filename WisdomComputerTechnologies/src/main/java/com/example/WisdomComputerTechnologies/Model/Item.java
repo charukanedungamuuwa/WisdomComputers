@@ -1,5 +1,9 @@
 package com.example.WisdomComputerTechnologies.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +18,8 @@ import java.util.function.Supplier;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "itemId")
+
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +43,9 @@ public class Item {
 
    @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+   @JsonBackReference // Prevent circular reference
+
+   private Customer customer;
     private Date purchaseDate;
     private Date purchaseTime;
 

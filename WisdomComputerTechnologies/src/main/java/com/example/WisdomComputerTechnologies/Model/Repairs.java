@@ -1,6 +1,7 @@
 package com.example.WisdomComputerTechnologies.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,6 +35,8 @@ public class Repairs {
 //    )
 //    private Set<Customer> customer = new HashSet<>();
     @OneToMany(mappedBy = "repairs", cascade = CascadeType.ALL)
+    @JsonManagedReference // Manage serialization of the list
+
     private List<GetRepairs> getRepairs;
 
 
@@ -44,6 +47,8 @@ public class Repairs {
             inverseJoinColumns = @JoinColumn(name = "employee_id")
 
     )
+    @JsonManagedReference // Manage serialization of the list
+
     private List<Employees> employees;
 
 }

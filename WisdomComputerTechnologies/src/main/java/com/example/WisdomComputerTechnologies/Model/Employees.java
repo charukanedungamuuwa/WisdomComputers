@@ -1,5 +1,7 @@
 package com.example.WisdomComputerTechnologies.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +28,8 @@ public class Employees {
 
 
     @ManyToMany(mappedBy = "employees",cascade = CascadeType.ALL)
+    @JsonBackReference // Prevent infinite recursion
+
     private List<Repairs> repairs ;
 
 

@@ -1,7 +1,9 @@
 package com.example.WisdomComputerTechnologies.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,6 +19,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "empId")
 public class Employees {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +29,12 @@ public class Employees {
     private String phone;
     private String email;
 
+    @Lob
+    @Column(columnDefinition = "MEDIUMBLOB")
+    private String image;
 
     @ManyToMany(mappedBy = "employees",cascade = CascadeType.ALL)
-    @JsonBackReference // Prevent infinite recursion
+    //@JsonBackReference // Prevent infinite recursion
 
     private List<Repairs> repairs ;
 

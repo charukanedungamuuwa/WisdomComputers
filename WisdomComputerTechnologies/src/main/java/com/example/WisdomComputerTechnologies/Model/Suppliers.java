@@ -21,6 +21,12 @@ public class Suppliers {
     private String address;
     private String phone;
     private String email;
+
+    @Lob
+    @Column(columnDefinition = "MEDIUMBLOB")
+    private String image;
+
+
     @OneToMany(mappedBy = "suppliers", cascade = CascadeType.ALL)
     private List<Item> item;
 }

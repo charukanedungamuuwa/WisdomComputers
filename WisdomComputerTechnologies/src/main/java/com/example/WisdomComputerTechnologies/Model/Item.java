@@ -43,7 +43,7 @@ public class Item {
 
    @ManyToOne
     @JoinColumn(name = "customer_id")
-   @JsonBackReference // Prevent circular reference
+   //@JsonBackReference // Prevent circular reference
 
    private Customer customer;
     private Date purchaseDate;

@@ -18,6 +18,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+//JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "customer_ServiceId")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "customer_ServiceId")
 
 public class GetRepairs {
@@ -29,12 +30,12 @@ public class GetRepairs {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    @JsonBackReference // Prevent recursion by ignoring this field during serialization
-
+   //@JsonBackReference // Prevent recursion by ignoring this field during serialization
     private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "service_id")
+    //@JsonBackReference
     private Repairs repairs;
 
 

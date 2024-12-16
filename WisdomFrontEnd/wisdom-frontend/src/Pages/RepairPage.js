@@ -335,6 +335,7 @@ const RepairPage = () => {
                     className="bg-blue-500 text-white px-4 py-2 rounded"
                 >
                     {editMode ? 'Update Repair' : 'Add Repair'}
+                   {/*{editMode ? 'Update Repair' : 'Add Repair'}*/}
                 </button>
             </div>
         </div>

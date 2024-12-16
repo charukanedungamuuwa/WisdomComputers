@@ -6,15 +6,22 @@ import Footer from "./Common/Footer";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import ServicesList from "./Pages/ServicesList";
-import MyRepairs from "./Pages/MyRepairs";
 import MyAccount from "./Pages/MyAccount";
+import RepairPage from "./Pages/RepairPage";
+import Suppliers from "./Pages/Suppliers";
+import HomePage from "./Pages/HomePage";
+import Employees from "./Pages/Employees";
+
 
 function App() {
   return (
       <div className="flex flex-col min-h-screen">
           <BrowserRouter>
               <NavBar/>
+
+
               <div className="container mx-auto flex-grow mt-4">
+
                   <Routes>
                       <Route path="/services" element={<ServicesList />}/>
                       <Route path="/about" element={<div>About Us Page</div>}/>
@@ -22,8 +29,12 @@ function App() {
                       <Route path="/purchase-options" element={<div>Purchase Options Page</div>}/>
                       <Route path="/login" element={<Login />} />
                       <Route path="/register" element={<Register />} />
-                      <Route path="/my-repairs" element={<MyRepairs />} />
+                      <Route path="/my-repairs" element={<RepairPage />} />
                       <Route path="/my-account" element={<MyAccount />} />
+                      <Route path="/my-account" element={<MyAccount />} />
+                      <Route path="/suppliers" element={<Suppliers />}/>
+                      <Route path="/employees" element={<Employees />} />
+
 
 
                   </Routes>

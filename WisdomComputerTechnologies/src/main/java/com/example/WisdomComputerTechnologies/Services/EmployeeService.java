@@ -5,7 +5,10 @@ import com.example.WisdomComputerTechnologies.Model.Employees;
 import com.example.WisdomComputerTechnologies.Model.Repairs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +27,8 @@ public class EmployeeService {
         return employeeDAO.findById(id);
     }
 
-    public Employees createEmployee(Employees employee) {
+    public Employees createEmployee(Employees employee, MultipartFile file)throws IOException {
+       employee.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
         return employeeDAO.save(employee);
     }
 

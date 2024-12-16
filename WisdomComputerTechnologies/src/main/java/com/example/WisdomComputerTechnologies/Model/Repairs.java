@@ -1,13 +1,17 @@
 package com.example.WisdomComputerTechnologies.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,6 +21,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "serviceId")
 public class Repairs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,19 +30,12 @@ public class Repairs {
     private String name;
     private String description;
     private int price;
+
+    @Lob
+    @Column(columnDefinition = "MEDIUMBLOB")
     private String image;
 
-    //    @ManyToMany(cascade=CascadeType.ALL)
-//    @JoinTable(
-//  name="Customer_Service",
-//            joinColumns = @JoinColumn(name = "service_id"),
-//            inverseJoinColumns = @JoinColumn(name = "customer_id")
-//
-//    )
-//    private Set<Customer> customer = new HashSet<>();
     @OneToMany(mappedBy = "repairs", cascade = CascadeType.ALL)
-    @JsonManagedReference // Manage serialization of the list
-
     private List<GetRepairs> getRepairs;
 
 
@@ -47,8 +46,6 @@ public class Repairs {
             inverseJoinColumns = @JoinColumn(name = "employee_id")
 
     )
-    @JsonManagedReference // Manage serialization of the list
-
     private List<Employees> employees;
 
 }

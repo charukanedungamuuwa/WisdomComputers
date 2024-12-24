@@ -25,8 +25,8 @@ public class UserInfoService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //Optional<UserInfo> userDetail = userInfoDAO.findByEmail(username); // Assuming 'email' is used as username
-        Optional<UserInfo> userDetail = userInfoDAO.findByName(username); // Assuming 'email' is used as username
+        Optional<UserInfo> userDetail = userInfoDAO.findByEmail(username); // Assuming 'email' is used as username
+        //Optional<UserInfo> userDetail = userInfoDAO.findByName(username); // Assuming 'email' is used as username
 
         // Converting UserInfo to UserDetails
         return userDetail.map(UserInfoDetails::new)

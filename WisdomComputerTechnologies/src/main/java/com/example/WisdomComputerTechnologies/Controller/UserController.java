@@ -12,6 +12,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/auth")
@@ -49,22 +52,7 @@ public class UserController {
         return "Welcome to Admin Profile";
     }
 
-   // @PostMapping("/generateToken")
 
-//    public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
-//        Authentication authentication = authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
-//        );
-//        if (authentication.isAuthenticated()) {
-//            System.out.println("User authenticated: " + authRequest.getUsername());
-//
-//            return jwtService.generateToken(authRequest.getUsername());
-//        } else {
-//            System.out.println("Authentication failed for user: " + authRequest.getUsername());
-//
-//            throw new UsernameNotFoundException("Invalid user request!");
-//        }
-//    }
     @PostMapping("/generateToken")
     public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(
@@ -79,6 +67,28 @@ public class UserController {
             System.out.println("Authentication failed for user: " + authRequest.getUsername());
             throw new UsernameNotFoundException("Invalid user request!");
         }
+    }
+    @GetMapping
+    public List<UserInfo> getAllUsers() {
+        return service.getAllUsers();
+    }
+
+    // Get user by ID
+    @GetMapping("/{id}")
+    public UserInfo getUserById(@PathVariable int id) {
+        return service.getUserById(id);
+    }
+
+    // Delete user by ID
+    @DeleteMapping("/{id}")
+    public String deleteUserById(@PathVariable int id) {
+        return service.deleteUserById(id);
+    }
+
+    // Update user by ID
+    @PutMapping("/{id}")
+    public UserInfo updateUserById(@PathVariable int id, @RequestBody UserInfo updatedUser) {
+        return service.updateUserById(id, updatedUser);
     }
 
 }

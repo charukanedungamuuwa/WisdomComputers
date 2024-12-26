@@ -11,6 +11,8 @@ import RepairPage from "./Pages/RepairPage";
 import Suppliers from "./Pages/Suppliers";
 import HomePage from "./Pages/HomePage";
 import Employees from "./Pages/Employees";
+import AdminDashboard from "./Pages/AdminDashboard";
+import ProtectedRoute from "./Pages/ProtectedRoute";
 
 
 function App() {
@@ -30,10 +32,35 @@ function App() {
                       <Route path="/login" element={<Login />} />
                       <Route path="/register" element={<Register />} />
                       <Route path="/my-repairs" element={<RepairPage />} />
-                      <Route path="/my-account" element={<MyAccount />} />
-                      <Route path="/my-account" element={<MyAccount />} />
-                      <Route path="/suppliers" element={<Suppliers />}/>
+                      {/*<Route path="/my-account" element={<MyAccount />} />*/}
+                      {/*<Route path="/my-account" element={<MyAccount />} />*/}
+                      {/*<Route path="/suppliers" element={<Suppliers />}/>*/}
                       <Route path="/employees" element={<Employees />} />
+                      <Route path="/admin" element={<AdminDashboard />} />
+                      <Route
+                          path="/admin-dashboard"
+                          element={
+                              <ProtectedRoute allowedRoles={['ROLE_ADMIN']}>
+                                  <AdminDashboard />
+                              </ProtectedRoute>
+                          }
+                      />
+                      <Route
+                          path="/supplier-dashboard"
+                          element={
+                              <ProtectedRoute allowedRoles={['ROLE_SUPPLIER']}>
+                                  <Suppliers />
+                              </ProtectedRoute>
+                          }
+                      />
+                      <Route
+                          path="/user-dashboard"
+                          element={
+                              <ProtectedRoute allowedRoles={['ROLE_USER']}>
+                                  <MyAccount />
+                              </ProtectedRoute>
+                          }
+                      />
 
 
 

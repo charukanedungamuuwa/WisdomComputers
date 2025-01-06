@@ -19,7 +19,8 @@ function App() {
   return (
       <div className="flex flex-col min-h-screen">
           <BrowserRouter>
-              <NavBar/>
+              <div><NavBar/></div>
+
 
 
               <div className="container mx-auto flex-grow mt-4">
@@ -32,11 +33,14 @@ function App() {
                       <Route path="/login" element={<Login />} />
                       <Route path="/register" element={<Register />} />
                       <Route path="/my-repairs" element={<RepairPage />} />
+                      <Route path="/my-account" element={<MyAccount />} />
                       {/*<Route path="/my-account" element={<MyAccount />} />*/}
-                      {/*<Route path="/my-account" element={<MyAccount />} />*/}
-                      {/*<Route path="/suppliers" element={<Suppliers />}/>*/}
+                      <Route path="/suppliers" element={<Suppliers />}/>
                       <Route path="/employees" element={<Employees />} />
                       <Route path="/admin" element={<AdminDashboard />} />
+                      <Route path="/admin" element={<AdminDashboard />} />
+                      <Route path="/homepage" element={<HomePage />} />
+                      <Route path="/test" element={<test />} />
                       <Route
                           path="/admin-dashboard"
                           element={
@@ -45,22 +49,22 @@ function App() {
                               </ProtectedRoute>
                           }
                       />
-                      <Route
-                          path="/supplier-dashboard"
-                          element={
-                              <ProtectedRoute allowedRoles={['ROLE_SUPPLIER']}>
-                                  <Suppliers />
-                              </ProtectedRoute>
-                          }
-                      />
-                      <Route
-                          path="/user-dashboard"
-                          element={
-                              <ProtectedRoute allowedRoles={['ROLE_USER']}>
-                                  <MyAccount />
-                              </ProtectedRoute>
-                          }
-                      />
+                      {/*<Route*/}
+                      {/*    path="/supplier-dashboard"*/}
+                      {/*    element={*/}
+                      {/*        <ProtectedRoute allowedRoles={['ROLE_SUPPLIER']}>*/}
+                      {/*            <Suppliers />*/}
+                      {/*        </ProtectedRoute>*/}
+                      {/*    }*/}
+                      {/*/>*/}
+                      {/*<Route*/}
+                      {/*    path="/user-dashboard"*/}
+                      {/*    element={*/}
+                      {/*        <ProtectedRoute allowedRoles={['ROLE_USER']}>*/}
+                      {/*            <MyAccount />*/}
+                      {/*        </ProtectedRoute>*/}
+                      {/*    }*/}
+                      {/*/>*/}
 
 
 

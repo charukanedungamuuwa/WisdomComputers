@@ -1,9 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import {useAuth} from "../Pages/AuthContext";
+
+
 
 const NavBar = () => {
+    const { isAuthenticated, logout } = useAuth();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout(); // Clears the token and resets authentication state
+        navigate('/about'); // Navigates to the "About" page
+    };
+
     return (
-        <nav className="bg-gray-800 p-4">
+        <nav className="bg-gray-800 p-4 fixed top-0 w-full">
             <div className="container mx-auto flex justify-between items-center">
 
                 <div className="text-white text-lg font-bold flex gap-x-6">
@@ -16,16 +27,30 @@ const NavBar = () => {
                     <Link to="/about" className="text-white hover:bg-gray-700 px-3 py-2 rounded">
                         About Us
                     </Link>
+                    {isAuthenticated? (
                     <Link to="/my-account" className="text-white hover:bg-gray-700 px-3 py-2 rounded">
                         My Account
-                    </Link>
+                    </Link>):"" }
                     <Link to="/my-repairs" className="text-white hover:bg-gray-700 px-3 py-2 rounded">
                         My Repairs
                     </Link>
                     <Link to="/purchase-options" className="text-white hover:bg-gray-700 px-3 py-2 rounded">
                         Purchase Options
                     </Link>
-                    <Link to="/login" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Login</Link>
+                    {/*{isAuthenticated ? (<Link to="/about" className="text-white hover:bg-gray-700 px-3 py-2 rounded">LogOut</Link>) : (*/}
+                    {/*<Link to="/login" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Login</Link>)}*/}
+                    {isAuthenticated ? (
+                        <button
+                            onClick={handleLogout}
+                            className="text-white hover:bg-gray-700 px-3 py-2 rounded"
+                        >
+                            LogOut
+                        </button>
+                    ) : (
+                        <Link to="/login" className="text-white hover:bg-gray-700 px-3 py-2 rounded">
+                            Login
+                        </Link>
+                    )}
                     <Link to="/register" className="text-white hover:bg-gray-700 px-3 py-2 rounded">Register</Link>
                 </div>
                 <div className="md:hidden">

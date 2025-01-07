@@ -26,7 +26,7 @@ public class Suppliers {
     @Column(columnDefinition = "MEDIUMBLOB")
     private String image;
 
-
-    @OneToMany(mappedBy = "suppliers", cascade = CascadeType.ALL)
-    private List<Item> item;
+//
+//    @OneToMany(mappedBy = "suppliers", cascade = CascadeType.ALL)
+//    private List<Item> item;
 }

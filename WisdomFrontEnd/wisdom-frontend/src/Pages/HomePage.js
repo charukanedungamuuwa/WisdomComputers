@@ -49,60 +49,65 @@ const HomePage = () => {
                         className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
                         whileHover={{scale: 1.05}}
                     >
-                        <img src="/Assets/services.jpg" alt="Services"
-                             className="w-full h-32 object-cover mb-4 rounded-lg"/>
-                        <FaCog className="text-blue-600 text-4xl mx-auto mb-4"/>
-                        <h3 className="text-xl font-bold mb-2">Services</h3>
-                        <p className="text-gray-600">Explore our comprehensive range of services.</p>
-                    </motion.div>
+                        <button onClick={() => navigate('/my-repairs')}>
+                            <img src="/Assets/services.jpg" alt="Services"
+                                 className="w-full h-32 object-cover mb-4 rounded-lg"/>
+                            <FaCog className="text-blue-600 text-4xl mx-auto mb-4"/>
+                            <h3 className="text-xl font-bold mb-2">Services</h3>
+                            <p className="text-gray-600">Explore our comprehensive range of services.</p>
+                   </button> </motion.div>
 
                     {/* Suppliers Card */}
                     <motion.div
                         className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
                         whileHover={{scale: 1.05}}
                     >
-                        <img src="/Assets/suppliers.jpg" alt="Suppliers"
-                             className="w-full h-32 object-cover mb-4 rounded-lg"/>
-                        <FaHandshake className="text-blue-600 text-4xl mx-auto mb-4"/>
-                        <h3 className="text-xl font-bold mb-2">Suppliers</h3>
-                        <p className="text-gray-600">Partner with trusted suppliers to ensure quality.</p>
-                    </motion.div>
+                        <button onClick={() => navigate('/suppliers')}>
+                            <img src="/Assets/suppliers.jpg" alt="Suppliers"
+                                 className="w-full h-32 object-cover mb-4 rounded-lg"/>
+                            <FaHandshake className="text-blue-600 text-4xl mx-auto mb-4"/>
+                            <h3 className="text-xl font-bold mb-2">Suppliers</h3>
+                            <p className="text-gray-600">Partner with trusted suppliers to ensure quality.</p>
+                        </button> </motion.div>
 
                     {/* About Us Card */}
                     <motion.div
                         className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
                         whileHover={{scale: 1.05}}
                     >
-                        <img src="/Assets/about-us.jpg" alt="About Us"
-                             className="w-full h-32 object-cover mb-4 rounded-lg"/>
-                        <FaInfoCircle className="text-blue-600 text-4xl mx-auto mb-4"/>
-                        <h3 className="text-xl font-bold mb-2">About Us</h3>
-                        <p className="text-gray-600">Learn more about our mission and vision.</p>
-                    </motion.div>
+                        <button onClick={() => navigate('/aboutus')}>
+                            <img src="/Assets/about-us.jpg" alt="About Us"
+                                 className="w-full h-32 object-cover mb-4 rounded-lg"/>
+                            <FaInfoCircle className="text-blue-600 text-4xl mx-auto mb-4"/>
+                            <h3 className="text-xl font-bold mb-2">About Us</h3>
+                            <p className="text-gray-600">Learn more about our mission and vision.</p>
+                        </button>  </motion.div>
 
                     {/* Products Card */}
                     <motion.div
                         className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
                         whileHover={{scale: 1.05}}
                     >
-                        <img src="/Assets/products.jpg" alt="Products"
-                             className="w-full h-32 object-cover mb-4 rounded-lg"/>
-                        <FaBoxOpen className="text-blue-600 text-4xl mx-auto mb-4"/>
-                        <h3 className="text-xl font-bold mb-2">Our Products</h3>
-                        <p className="text-gray-600">Discover our diverse range of products.</p>
-                    </motion.div>
+                        <button onClick={() => navigate('/employees')}>
+                            <img src="/Assets/products.jpg" alt="Products"
+                                 className="w-full h-32 object-cover mb-4 rounded-lg"/>
+                            <FaBoxOpen className="text-blue-600 text-4xl mx-auto mb-4"/>
+                            <h3 className="text-xl font-bold mb-2">Our Products</h3>
+                            <p className="text-gray-600">Discover our diverse range of products.</p>
+                        </button>  </motion.div>
 
                     {/* Customers Card */}
                     <motion.div
                         className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
                         whileHover={{scale: 1.05}}
                     >
-                        <img src="/Assets/customers.jpg" alt="Customers"
-                             className="w-full h-32 object-cover mb-4 rounded-lg"/>
-                        <FaUsers className="text-blue-600 text-4xl mx-auto mb-4"/>
-                        <h3 className="text-xl font-bold mb-2">Customers</h3>
-                        <p className="text-gray-600">See why customers trust us to achieve their goals.</p>
-                    </motion.div>
+                        <button onClick={() => navigate('/customers')}>
+                            <img src="/Assets/customers.jpg" alt="Customers"
+                                 className="w-full h-32 object-cover mb-4 rounded-lg"/>
+                            <FaUsers className="text-blue-600 text-4xl mx-auto mb-4"/>
+                            <h3 className="text-xl font-bold mb-2">Customers</h3>
+                            <p className="text-gray-600">See why customers trust us to achieve their goals.</p>
+                        </button>    </motion.div>
 
                     <motion.div
                         className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow"

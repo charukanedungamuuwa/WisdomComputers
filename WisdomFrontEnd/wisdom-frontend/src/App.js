@@ -13,6 +13,10 @@ import HomePage from "./Pages/HomePage";
 import Employees from "./Pages/Employees";
 import AdminDashboard from "./Pages/AdminDashboard";
 import ProtectedRoute from "./Pages/ProtectedRoute";
+import Products from "./Pages/Products";
+import ShowProducts from "./Pages/ShowProducts";
+import Customers from "./Pages/Customers";
+import AboutUs from "./Pages/AboutUs";
 
 
 function App() {
@@ -40,6 +44,12 @@ function App() {
                       <Route path="/admin" element={<AdminDashboard />} />
                       <Route path="/admin" element={<AdminDashboard />} />
                       <Route path="/homepage" element={<HomePage />} />
+                      <Route path="/products" element={<Products />} />
+                      <Route path="/showproducts" element={<ShowProducts />} />
+                      <Route path="/customers" element={<Customers />} />
+                      <Route path="/aboutus" element={<AboutUs />} />
+
+
                       <Route path="/test" element={<test />} />
                       <Route
                           path="/admin-dashboard"

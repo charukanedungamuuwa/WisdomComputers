@@ -34,11 +34,11 @@ public class Customer {
 @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 //@JsonManagedReference // Manage serialization of the list
 
-private List<Item> item;
-//
-//@ManyToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-//    private Set<ServicesEntity> servicesEntities = new HashSet<>();
- @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
- //@JsonManagedReference // Manage serialization of the list
+//private List<Item> item;
+////
+////@ManyToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+////    private Set<ServicesEntity> servicesEntities = new HashSet<>();
+// @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+// //@JsonManagedReference // Manage serialization of the list
  private List<GetRepairs> getRepairs;
 }

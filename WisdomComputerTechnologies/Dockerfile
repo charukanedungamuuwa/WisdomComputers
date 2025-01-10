@@ -1,0 +1,23 @@
+##FROM eclipse-temurin:21-jdk-alpine
+#FROM maven:4.0.0-openjdk-17 AS build
+#
+#WORKDIR /app
+#
+#COPY ./pom.xml /app
+#COPY ./src /app/src
+#
+#RUN mvn clean package -Dmaven.test.skip=true
+#
+#FROM openjdk:17-jdk
+#
+#
+#WORKDIR /app
+#
+#COPY target/WisdomComputerTechnologies-0.0.1-SNAPSHOT.jar app.jar
+#
+#EXPOSE 8080
+#
+#CMD ["java", "-jar", "app.jar"]
+#
+#
+#

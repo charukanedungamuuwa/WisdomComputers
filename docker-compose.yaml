@@ -1,0 +1,38 @@
+#
+#version: '3.9'
+#services:
+#  mysql:
+#    image: mysql:8.0
+#    ports:
+#      - "3306:3306"
+#    environment:
+#      MYSQL_ROOT_PASSWORD: 6667charuka
+##      MYSQL_USER: root
+##      MYSQL_PASSWORD: 6667charuka
+#      MYSQL_DATABASE: wisdomcomputers
+#
+#  spring-boot-app:
+#    build:
+#      context: ./WisdomComputerTechnologies
+#      dockerfile: Dockerfile
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - mysql
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/wisdomcomputers
+#      SPRING_DATASOURCE_USERNAME: root
+#      SPRING_DATASOURCE_PASSWORD: 6667charuka
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#
+#
+#
+#  react-app:
+#    build:
+#      context: ./WisdomFrontEnd/wisdom-frontEnd
+#      dockerfile: Dockerfile
+#    ports:
+#      - "3000:3000"
+#
+#    environment:
+#      - CHOKIDAR_USEPOLLING=true

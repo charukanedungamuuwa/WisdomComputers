@@ -71,6 +71,9 @@ public class UserInfoService implements UserDetailsService {
                     existingUser.setEmail(updatedUser.getEmail());
                     existingUser.setPassword(encoder.encode(updatedUser.getPassword()));
                     existingUser.setRoles(updatedUser.getRoles());
+                    existingUser.setAddress(updatedUser.getAddress());
+                    existingUser.setPhone(updatedUser.getPhone());
+                    existingUser.setJoinedDate(updatedUser.getJoinedDate());
                     return userInfoDAO.save(existingUser);
                 })
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with ID: " + id));

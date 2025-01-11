@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -41,13 +42,13 @@ public class UserController {
     }
 
     @GetMapping("/user/userProfile")
-  @PreAuthorize("hasAuthority('ROLE_USER')")
+  //@PreAuthorize("hasAuthority('ROLE_USER')")
     public String userProfile() {
         return "Welcome to User Profile";
     }
 
     @GetMapping("/admin/adminProfile")
- @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+ //@PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String adminProfile() {
         return "Welcome to Admin Profile";
     }
@@ -90,5 +91,23 @@ public class UserController {
     public UserInfo updateUserById(@PathVariable int id, @RequestBody UserInfo updatedUser) {
         return service.updateUserById(id, updatedUser);
     }
+    @GetMapping("/suppliers")
+    public List<UserInfo> getSuppliers() {
+        return service.getAllUsers().stream()
+                .filter(user -> "ROLE_SUPPLIER".equals(user.getRoles()))
+                .collect(Collectors.toList());
+    }
+    @GetMapping("/user")
+    public List<UserInfo> getCustomers() {
+        return service.getAllUsers().stream()
+                .filter(user -> "ROLE_USER".equals(user.getRoles()))
+                .collect(Collectors.toList());
+    }
 
+    @GetMapping("/employee")
+    public List<UserInfo> getEmployees() {
+        return service.getAllUsers().stream()
+                .filter(user -> "ROLE_EMPLOYEE".equals(user.getRoles()))
+                .collect(Collectors.toList());
+    }
 }

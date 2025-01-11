@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, {createContext, useState, useContext, useEffect} from 'react';
 
 // Create the context
 const AuthContext = createContext();
@@ -13,7 +13,14 @@ export const AuthProvider = ({ children }) => {
         token: null,
         role: null,
     });
+    useEffect(() => {
+        const token = localStorage.getItem('authToken');
+        const role = localStorage.getItem('userRole');
 
+        if (token) {
+            setAuthState({ isAuthenticated: true, token, role });
+        }
+    }, []);
     // Function to log in
     const login = (token, role) => {
         setAuthState({ isAuthenticated: true, token, role });

@@ -35,20 +35,20 @@ public class Item {
 
 
 
-   @ManyToOne
-    @JoinColumn(name = "supplier_id")
-    private Suppliers suppliers;
-    private Date supplyDate;
-    private Date supplyTime;
-
-   @ManyToOne
-    @JoinColumn(name = "customer_id")
-   //@JsonBackReference // Prevent circular reference
-
-   private Customer customer;
-    private Date purchaseDate;
-    private Date purchaseTime;
-
+//   @ManyToOne
+//    @JoinColumn(name = "supplier_id")
+//    private Suppliers suppliers;
+//    private Date supplyDate;
+//    private Date supplyTime;
+//
+//   @ManyToOne
+//    @JoinColumn(name = "customer_id")
+//   //@JsonBackReference // Prevent circular reference
+//
+//   private Customer customer;
+//    private Date purchaseDate;
+//    private Date purchaseTime;
+//
 
 
 }

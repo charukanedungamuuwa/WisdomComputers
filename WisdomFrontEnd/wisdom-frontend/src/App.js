@@ -17,6 +17,7 @@ import Products from "./Pages/Products";
 import ShowProducts from "./Pages/ShowProducts";
 import Customers from "./Pages/Customers";
 import AboutUs from "./Pages/AboutUs";
+import RepairLogs from "./Pages/RepairLogs";
 
 
 function App() {
@@ -48,6 +49,8 @@ function App() {
                       <Route path="/showproducts" element={<ShowProducts />} />
                       <Route path="/customers" element={<Customers />} />
                       <Route path="/aboutus" element={<AboutUs />} />
+                      <Route path="/repairlogs" element={<RepairLogs />} />
+
                       <Route path="" element={<HomePage />} />
 
 

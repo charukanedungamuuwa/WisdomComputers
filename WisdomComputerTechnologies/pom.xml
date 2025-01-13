@@ -91,6 +91,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		<!-- Ensure you use the appropriate version for your Spring Boot version -->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-clients</artifactId>
+			<version>3.5.1</version> <!-- Match this version to your Kafka server version -->
+		</dependency>
 
 	</dependencies>
 

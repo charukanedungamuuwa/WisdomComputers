@@ -3,7 +3,10 @@ import React from 'react';
 const RepairLogs = () => {
     return (
         <div>
-            <h1>rfewfewrgergerge</h1>
+            <button className=" mt-64">Click to add a record</button>
+
+
+
 
         </div>
     );
